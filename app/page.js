@@ -1,101 +1,103 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-export default function Home() {
+const HomgePage = () => {
+  const BannerInicio = [
+    {
+      video:
+        "https://img.freepik.com/foto-gratis/artistas-que-usan-pintura-latas-pincel_23-2148591278.jpg?t=st=1724426088~exp=1724429688~hmac=8f35ebc32821da340ecf89ffdb583ad8a21f08fc5c95b60c386b0108087b9fec&w=826",
+    },
+    ,
+  ];
+
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div>
+      <div className="relative w-full h-screen sm:h-[90vh]">
+        <video
+          src="/VideoBanner.mp4"
+          className="h-full w-full object-cover overflow-hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full text-white bg-black/40"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariants}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="flex justify-start items-center max-w-[883px] h-full pl-2 sm:text-3xl sm:pl-20">
+            <div className="max-w-[40rem] space-y-1 sm:space-y-4">
+              <motion.section
+                className="sm:p-2 font-bold bg-Secundario border border-Secundario text-xl uppercase rounded-3xl rounded-br-none rounded-tl-none outline-none shadow-lg hover:shadow-xl hover:opacity-90 duration-200 w-[10.5rem] text-white"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInVariants}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Soluciones
+              </motion.section>
+              <motion.p
+                className="text-start text-base sm:text-4xl font-extrabold"
+                initial="hidden"
+                animate="visible"
+                variants={fadeInVariants}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                A tu <span className="uppercase">Medida</span>
+              </motion.p>
+
+              <Link href={"/Servicios"} className="flex justify-start">
+                <motion.div
+                  className="group font-medium tracking-wide select-none text-base relative inline-flex items-center justify-start cursor-pointer sm:h-12 border-2 border-solid py-0 px-6 rounded-md overflow-hidden z-10 transition-all duration-300 ease-in-out outline-0 bg-transparent text-white border-Secundario hover:bg-Secundario"
+                  initial="hidden"
+                  animate="visible"
+                  variants={fadeInVariants}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <strong className="font-bold uppercase">Servicios</strong>
+                  <span className="absolute bg-Secundario bottom-0 w-0 left-1/2 h-full -translate-x-1/2 transition-all ease-in-out duration-300 group-hover:w-[105%] -z-[1] group-focus:w-[105%]" />
+                </motion.div>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="space-y-5">
+        <div className="bg-gray-50 ">
+          <div className="container mx-auto my-4 space-y-6 ">
+            <div className="  ">
+              <div className="space-y-4">
+                <div className=" max-w-2xl text-center mx-auto">
+                  <h1 className="block font-semibold text-gray-800 text-4xl md:text-5xl lg:text-6xl ">
+                    Nuestros Productos
+                  </h1>
+                </div>
+                <div className=" max-w-3xl mx-auto">
+                  <p className="text-lg text-gray-600  text-center">
+                    Queremos facilitar tu experiencia a la hora de comprar. Haz
+                    clic de acuerdo a lo que necesitas
+                  </p>
+                </div>
+              </div>
+              {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6   lg:grid-cols-4"></div> */}
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
-}
+};
+
+export default HomgePage;
